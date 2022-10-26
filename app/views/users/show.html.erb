@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>アカウントID:</strong>
+  <%= @user.account_id %>
+</p>
+
+<p>
+  <strong>パスワード:</strong>
+  <%= @user.passward %>
+</p>
+
+<p>
+  <strong>利用者名:</strong>
+  <%= @user.user_name %>
+</p>
+
+<p>
+  <strong>管理者判別:</strong>
+  <%= @user.admin %>
+</p>
+
+<%= link_to '編集', edit_user_path(@user) %> |
+<%= link_to '戻る', users_path %>
