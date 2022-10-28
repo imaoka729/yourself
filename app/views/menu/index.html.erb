@@ -1,0 +1,5 @@
+<% if logged_in? %>
+  <%= render 'menu/top' %>
+<% else %>
+  <%= render 'sessions/new' %>
+<% end %>

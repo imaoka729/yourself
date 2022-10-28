@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only:[:edit, :update, :destroy]
   before_action :set_user, only: %i[ show edit update destroy ]
 
   # GET /users or /users.json
