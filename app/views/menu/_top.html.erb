@@ -1,6 +1,18 @@
 <h1>メニュートップ</h1>
-<p> </p>
+<p>こんにちは　<%= @current_user.user_name %>さん</p>
+
+<%= @current_user.admin %>
+
+<h2>お金</h2>
+<%= link_to "収入・支出一覧を見る"%>
+<p>現在 貯金は<%= %>円です</p>
+
+
+<h2>食品</h2>
+<%= link_to "食品一覧を見る" %>
+<p>期限が3日以内の食品が<%= %>個あります</p>
 
 
 
-<%= link_to "ログアウト", logout_path, method: :delete %>
+
+<p><%= link_to "ログアウト", logout_path, method: :delete %></p>

@@ -4,9 +4,18 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(account_id: params[:session][:account_id])
-    if user && user.passward = (params[:session][:password])
+    if user && user.passward == (params[:session][:password])
       log_in user
-      redirect_to '/menu/index'
+
+      # もしuser.adminがtrueなら
+      if user.admin
+      #   リダイレクト　user/index
+        redirect_to '/users'
+      else
+      #   リダイレクト　↓
+        redirect_to '/menu/index'
+      end
+
     else
       render 'new'
     end
