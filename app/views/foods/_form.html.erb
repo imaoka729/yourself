@@ -1,0 +1,57 @@
+<%= form_with(model: food) do |form| %>
+  <% if food.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(food.errors.count, "") %> 個のエラーが発生しました:</h2>
+
+      <ul>
+        <% food.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :食品名 %>
+    <%= form.text_field :food_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :カテゴリー %>
+    <%= form.select :category_id, Category.all.map { |c| [c.category_name, c.id]} %> 
+    <%= link_to 'カテゴリー追加' , new_category_path %>
+  </div>
+
+  <div class="field">
+    <%#= form.label :賞味・消費 %>
+    <%#= form.number_field :syoumi_syouhi %>
+    <%= form.radio_button :syoumi_syouhi, :male %>
+    <%= form.label :syoumi_syouhi, "賞味", {value: :male, style: "display: inline-block;"} %>
+    <%= form.radio_button :syoumi_syouhi, :female %>
+    <%= form.label :syoumi_syouhi, "消費", {value: :female, style: "display: inline-block;"} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :期限日 %>
+    <%= form.date_select :expiration_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :購入日 %>
+    <%= form.date_select :purchase_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :個数 %>
+    <%= form.number_field :quantity %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "登録" %>
+  </div>
+<% end %>

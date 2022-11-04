@@ -17,6 +17,30 @@ ActiveRecord::Schema.define(version: 2022_10_28_001618) do
     t.date "income_pay_date"
     t.integer "pay"
     t.integer "income"
+ActiveRecord::Schema.define(version: 2022_10_28_014526) do
+
+  create_table "categories", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "category_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "foods", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "food_name"
+    t.integer "category_id"
+    t.integer "syoumi_syouhi"
+    t.date "expiration_date"
+    t.date "purchase_date"
+    t.integer "quantity"
+ActiveRecord::Schema.define(version: 2022_10_26_020821) do
+
+  create_table "users", force: :cascade do |t|
+    t.string "account_id"
+    t.string "passward"
+    t.string "user_name"
+    t.boolean "admin"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
