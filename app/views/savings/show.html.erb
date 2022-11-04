@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>アカウントID:</strong>
+  <%= @saving.account_id %>
+</p>
+
+<p>
+  <strong>年月日:</strong>
+  <%= @saving.income_pay_date %>
+</p>
+
+<p>
+  <strong>支出:</strong>
+  <%= number_with_delimiter(@saving.pay) %>
+</p>
+
+<p>
+  <strong>収入:</strong>
+  <%= number_with_delimiter(@saving.income) %>
+</p>
+
+<%= link_to '編集', edit_saving_path(@saving) %> |
+<%= link_to '戻る', savings_path %>
