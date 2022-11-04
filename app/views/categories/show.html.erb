@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @category.user_id %>
+</p>
+
+<p>
+  <strong>カテゴリー名:</strong>
+  <%= @category.category_name %>
+</p>
+
+<%= link_to '変更', edit_category_path(@category) %> |
+<%= link_to '戻る', categories_path %>

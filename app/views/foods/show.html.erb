@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @food.user_id %>
+</p>
+
+<p>
+  <strong>食品名:</strong>
+  <%= @food.food_name %>
+</p>
+
+<p>
+  <strong>カテゴリー:</strong>
+  <%= @food.category.category_name %>
+</p>
+
+<p>
+  <strong>賞味・消費:</strong>
+  <%= @food.syoumi_syouhi %>
+</p>
+
+<p>
+  <strong>期限日:</strong>
+  <%= @food.expiration_date %>
+</p>
+
+<p>
+  <strong>購入日:</strong>
+  <%= @food.purchase_date %>
+</p>
+
+<p>
+  <strong>個数:</strong>
+  <%= @food.quantity %>個
+</p>
+
+<%= link_to '編集', edit_food_path(@food) %> |
+<%= link_to '一覧画面に戻る', foods_path %>
