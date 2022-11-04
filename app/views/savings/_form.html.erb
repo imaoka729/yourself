@@ -1,0 +1,37 @@
+<%= form_with(model: saving) do |form| %>
+  <% if saving.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(saving.errors.count, "error") %> prohibited this saving from being saved:</h2>
+
+      <ul>
+        <% saving.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :アカウントID %>
+    <%= form.text_field :account_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :年月日 %>
+    <%= form.date_select :income_pay_date, use_month_numbers:true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :支出 %>
+    <%= form.number_field :pay %>
+  </div>
+
+  <div class="field">
+    <%= form.label :収入 %>
+    <%= form.number_field :income %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "登録" %>
+  </div>
+<% end %>
