@@ -10,13 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_28_001618) do
-
-  create_table "savings", force: :cascade do |t|
-    t.string "account_id"
-    t.date "income_pay_date"
-    t.integer "pay"
-    t.integer "income"
 ActiveRecord::Schema.define(version: 2022_10_28_014526) do
 
   create_table "categories", force: :cascade do |t|
@@ -34,6 +27,15 @@ ActiveRecord::Schema.define(version: 2022_10_28_014526) do
     t.date "expiration_date"
     t.date "purchase_date"
     t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "savings", force: :cascade do |t|
+    t.string "account_id"
+    t.date "income_pay_date"
+    t.integer "pay"
+    t.integer "income"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

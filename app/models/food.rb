@@ -19,7 +19,9 @@ class Food < ApplicationRecord
 
    if quantity.blank?
      errors[:base] << '個数は必ず入力してして下さい'
+   elsif quantity < 1
+     errors[:base] << '個数は必ず１以上にしてください'
    end
- end
+  end
 
 end

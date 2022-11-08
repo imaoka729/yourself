@@ -22,7 +22,11 @@
         <td><%= food.user_id %></td>
         <td><%= food.food_name %></td>
         <td><%= food.category.category_name %></td>
-        <td><%= food.syoumi_syouhi %></td>
+        <% if food.syoumi_syouhi == 0 %>
+          <td>賞味期限</td>
+        <% else %>
+          <td>消費期限</td>
+        <% end %>
         <td><%= food.expiration_date %></td>
         <td><%= food.purchase_date %></td>
         <td><%= food.quantity %>個</td>
@@ -36,4 +40,5 @@
 
 <br>
 
-<%= link_to '新規登録', new_food_path %>
+<%= link_to '新規登録', new_food_path %> |
+<%= link_to "ログアウト", logout_path, method: :delete %>
