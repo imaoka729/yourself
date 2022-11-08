@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>貯金 現在の残高 <%= number_with_delimiter(Saving.cal_balance(1))%>円  <%=@message%></h1>
+<h1>貯金 現在の残高 <%= number_with_delimiter(Saving.cal_balance(@current_user.id))%>円  <%=@message%></h1>
 
 <table>
   <thead>
     <tr>
-      <th>アカウントID</th>
+      <!--<th>アカウントID</th>-->
       <th>年月日</th>
       <th>支出</th>
       <th>収入</th>
@@ -19,7 +19,7 @@
   <% @cal_income = 0 %>
     <% @savings.each do |saving| %>
       <tr>
-        <td><%= saving.account_id %></td>
+        <!--<td><%= saving.account_id %></td>-->
         <td><%= saving.income_pay_date %></td>
         <td><%= number_with_delimiter(saving.pay) %></td>
         <td><%= number_with_delimiter(saving.income) %></td>
@@ -41,3 +41,5 @@
 <br>
 
 <%= link_to '新しく入力', new_saving_path %>
+
+<p><%= link_to "ログアウト", logout_path, method: :delete %></p>
