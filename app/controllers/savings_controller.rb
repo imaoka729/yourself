@@ -1,10 +1,11 @@
 class SavingsController < ApplicationController
+  before_action :logged_in_user
   before_action :set_saving, only: %i[ show edit update destroy ]
 
   # GET /savings or /savings.json
   def index
     # account_idを渡す
-    @savings = Saving.all.order(income_pay_date: :asc)
+    @savings = Saving.where(account_id: current_user.id).order(income_pay_date: :asc)
     @balance = Saving.cal_balance(1) 
     @message = Saving.message_by_balance(@balance)
   end
@@ -25,7 +26,7 @@ class SavingsController < ApplicationController
   # POST /savings or /savings.json
   def create
     @saving = Saving.new(saving_params)
-
+    @saving.account_id = current_user.id
     respond_to do |format|
       if @saving.save
         format.html { redirect_to saving_url(@saving), notice: "作成が完了しました。" }
