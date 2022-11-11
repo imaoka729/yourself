@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @food.user_id %>
-</p>
-
-<p>
   <strong>食品名:</strong>
   <%= @food.food_name %>
 </p>
@@ -17,7 +12,11 @@
 
 <p>
   <strong>賞味・消費:</strong>
-  <%= @food.syoumi_syouhi %>
+  <% if @food.syoumi_syouhi == 0 %>
+    <td>賞味期限</td>
+  <% else %>
+    <td>消費期限</td>
+  <% end %>
 </p>
 
 <p>

@@ -1,9 +1,10 @@
 class FoodsController < ApplicationController
+  before_action :logged_in_user
   before_action :set_food, only: %i[ show edit update destroy ]
 
   # GET /foods or /foods.json
   def index
-    @foods = Food.all.order(expiration_date: :asc)
+    @foods = Food.where(user_id: current_user.id).order(expiration_date: :asc)
   end
 
   # GET /foods/1 or /foods/1.json
@@ -22,6 +23,7 @@ class FoodsController < ApplicationController
   # POST /foods or /foods.json
   def create
     @food = Food.new(food_params)
+    @food.user_id = current_user.id
 
     if @food.save
       redirect_to foods_path

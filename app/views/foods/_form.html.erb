@@ -12,11 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
-  </div>
-
-  <div class="field">
     <%= form.label :食品名 %>
     <%= form.text_field :food_name %>
   </div>
@@ -30,20 +25,20 @@
   <div class="field">
     <%#= form.label :賞味・消費 %>
     <%#= form.number_field :syoumi_syouhi %>
-    <%= form.radio_button :syoumi_syouhi, :male %>
-    <%= form.label :syoumi_syouhi, "賞味", {value: :male, style: "display: inline-block;"} %>
-    <%= form.radio_button :syoumi_syouhi, :female %>
-    <%= form.label :syoumi_syouhi, "消費", {value: :female, style: "display: inline-block;"} %>
+    <%= form.radio_button :syoumi_syouhi,0 %>
+    <%= form.label :syoumi_syouhi, "賞味", {value: 0, style: "display: inline-block;"} %>
+    <%= form.radio_button :syoumi_syouhi,1 %>
+    <%= form.label :syoumi_syouhi, "消費", {value: 1, style: "display: inline-block;"} %>
   </div>
 
   <div class="field">
     <%= form.label :期限日 %>
-    <%= form.date_select :expiration_date %>
+    <%= form.date_select :expiration_date, use_month_numbers:true %>
   </div>
 
   <div class="field">
     <%= form.label :購入日 %>
-    <%= form.date_select :purchase_date %>
+    <%= form.date_select :purchase_date, use_month_numbers:true %>
   </div>
 
   <div class="field">

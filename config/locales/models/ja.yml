@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    attributes:
+      category:
+        category_name: カテゴリー名
+      food:
+        food_name: 食品名
+        syoumi_syouhi: 賞味・消費
+        quantity: 個数
+        purchase_date: 購入日
