@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 
     validate :error_check
+    validates :account_id, uniqueness: { case_sensitive: false }
 
     def error_check
       if account_id.blank?
