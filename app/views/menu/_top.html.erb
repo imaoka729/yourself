@@ -1,10 +1,9 @@
 <h1>メニュートップ</h1>
-<p>こんにちは　<%= @current_user.user_name %>さん</p>
 
 
 <h2>お金</h2>
 <%= link_to "収入・支出一覧を見る", "/savings"%>
-<p>現在 貯金は<%= %>円です</p>
+<p>現在 貯金は<%= number_with_delimiter(Saving.cal_balance(@current_user.id)) %>円です</p>
 
 
 <h2>食品</h2>
@@ -13,5 +12,3 @@
 
 
 
-
-<p><%= link_to "ログアウト", logout_path, method: :delete %></p>
