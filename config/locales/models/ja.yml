@@ -1,5 +1,7 @@
 ja:
   activerecord:
+    models:
+      user: ゆーざー
     attributes:
       category:
         category_name: カテゴリー名
@@ -8,3 +10,10 @@ ja:
         syoumi_syouhi: 賞味・消費
         quantity: 個数
         purchase_date: 購入日
+      user:
+        account_id: アカウントid
+        passward: パスワード
+        user_name: 利用者名
+
+
+        
