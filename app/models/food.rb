@@ -2,7 +2,20 @@ class Food < ApplicationRecord
 
  belongs_to :category
     
- #validate :error_check
+ def Food.quantity(user_id)
+   foods = Food.where(user_id: user_id)
+   
+   total_quantity = 0
+  
+   foods.each do |food|
+     if food.expiration_date - Date.today <= 3
+        total_quantity = total_quantity + food.quantity
+     end
+   end
+   return total_quantity
+end
+
+ validate :error_check
  validates :food_name, presence: { message: "は必ず入力して下さい" }
  validates :syoumi_syouhi, presence: { message: "は必ず選択して下さい" }
  validates :quantity, presence: { message: "は必ず入力して下さい" }
