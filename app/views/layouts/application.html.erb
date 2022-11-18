@@ -8,6 +8,10 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <!-- ブートストップの導入 -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
   </head>
 
   <body>
@@ -16,11 +20,17 @@
     <% if @current_user %>
     <div>
       こんにちは <%= @current_user.user_name %>さん
-      <%= link_to "メニュー画面に戻る"%>
+      <%= link_to "メニュー画面に戻る",'/menu/index' %>
       <%= link_to "ログアウト", logout_path, method: :delete %>
     </div>
     <% end %>
   </header>
-    <%= yield %>
+  
+      <div class="container">
+      <%= yield %>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+  
   </body>
 </html>
