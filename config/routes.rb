@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   post   '/login',  to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   resources :users
+  post '/savings_search',to:'savings#search'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

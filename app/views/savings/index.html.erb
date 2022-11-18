@@ -1,6 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <h1>貯金 現在の残高 <%= number_with_delimiter(Saving.cal_balance(@current_user.id))%>円  <%=@message%></h1>
+<h2><%= link_to '新しく入力', new_saving_path %></h2>
+
+    <%= form_tag('/savings_search') do %>
+    <p>
+    年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月
+    <br>
+    <%= text_field_tag 'search[year]',  @year %><%= text_field_tag'search[month]', @month%>
+    <!--<%= select_tag'search[:year]'%><%= select_tag'search[:month]'%>-->
+    <%=submit_tag'検索' %>
+    </p>
+    <%end%>
 
 <table>
   <thead>
@@ -23,12 +37,15 @@
         <td><%= saving.income_pay_date %></td>
         <td><%= number_with_delimiter(saving.pay) %></td>
         <td><%= number_with_delimiter(saving.income) %></td>
+
         <% if saving.pay  %>
         <% @cal_pay = @cal_pay + saving.pay %>
         <% end %>
+
         <% if saving.income  %>
         <% @cal_income = @cal_income + saving.income %>
         <% end %>
+
         <td><%= number_with_delimiter(@cal_income - @cal_pay) %></td>
         <td><%= link_to '確認', saving %></td>
         <td><%= link_to '編集', edit_saving_path(saving) %></td>
@@ -39,7 +56,3 @@
 </table>
 
 <br>
-
-<%= link_to '新しく入力', new_saving_path %>
-
-<p><%= link_to "ログアウト", logout_path, method: :delete %></p>

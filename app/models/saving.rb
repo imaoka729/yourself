@@ -10,6 +10,7 @@ class Saving < ApplicationRecord
             if saving.pay
                 total_pay = total_pay + saving.pay
             end
+            
             if saving.income
                 total_income = total_income + saving.income
             end
@@ -40,7 +41,7 @@ class Saving < ApplicationRecord
         elsif balance < 900000
             "百里を行くものは九十を半ばとす、だよ"
         elsif balance < 1000000
-            "保留"
+            "続けるよね？"
         else
             "想像し、創造せよ"
         end

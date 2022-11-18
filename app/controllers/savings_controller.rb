@@ -6,8 +6,27 @@ class SavingsController < ApplicationController
   def index
     # account_idを渡す
     @savings = Saving.where(account_id: current_user.id).order(income_pay_date: :asc)
-    @balance = Saving.cal_balance(1) 
+    @balance = Saving.cal_balance(current_user.id) 
     @message = Saving.message_by_balance(@balance)
+  end
+
+  def search
+    @year =  params[:search][:year]
+    @month = params[:search][:month]
+
+    if @year.present? && @month.present?
+      datefi = Date.new(@year.to_i, @month.to_i, 1)
+      datela = datefi.end_of_month
+    end
+
+    @savings = Saving.where('account_id = ? AND income_pay_date between ? and ?', current_user.id, datefi, datela).order(income_pay_date: :asc)
+    @balance = Saving.cal_balance(current_user.id) 
+    @message = Saving.message_by_balance(@balance)
+
+    #@savings = Saving.where('account_id: current_user.id').order(income_pay_date: :asc)
+    #@savings = Saving.where('income_pay_date between ? and ?', datefi, datela)
+
+    render :index
   end
 
   # GET /savings/1 or /savings/1.json
