@@ -28,6 +28,7 @@
         <td><%= food.expiration_date %></td>
         <td><%= food.purchase_date %></td>
         <td><%= food.quantity %>個</td>
+        <td><%= link_to '消費', syouhi_food_path(food) %></td>
         <td><%= link_to '詳細', food %></td>
         <td><%= link_to '編集', edit_food_path(food) %></td>
         <td><%= link_to '削除', food, method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
@@ -37,5 +38,4 @@
 </table>
 
 <br>
-
 <%= link_to '新規登録', new_food_path %>

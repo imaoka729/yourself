@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :savings
   resources :foods
+  get 'foods/:id/syouhi' => 'foods#syouhi', as: 'syouhi_food'
   resources :categories
   get 'menu/top'
   get 'menu/index'
