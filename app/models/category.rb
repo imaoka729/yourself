@@ -2,12 +2,7 @@ class Category < ApplicationRecord
 
  has_many :foods
 
- validate :error_check
-
- def error_check
-   if category_name.blank?
-     errors[:base] << 'カテゴリー名は必ず入力して下さい'
-   end
- end
-
+ validates :category_name, presence: { message: "は必ず入力して下さい" }
+ validates :category_name, uniqueness: { scope: :user_id, message: "はすでに追加されています" }
+ 
 end

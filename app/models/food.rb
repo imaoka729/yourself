@@ -2,24 +2,30 @@ class Food < ApplicationRecord
 
  belongs_to :category
     
+ def Food.quantity(user_id)
+   foods = Food.where(user_id: user_id)
+   
+   total_quantity = 0
+  
+   foods.each do |food|
+     if food.expiration_date - Date.today <= 3
+        total_quantity = total_quantity + food.quantity
+     end
+   end
+   return total_quantity
+end
+
  validate :error_check
+ validates :food_name, presence: { message: "は必ず入力して下さい" }
+ validates :syoumi_syouhi, presence: { message: "は必ず選択して下さい" }
+ validates :quantity, presence: { message: "は必ず入力して下さい" }
+ validates :purchase_date,  date: {after_or_equal_to: Date.new(1900, 1, 1),before_or_equal_to: ->(obj) { Date.today } ,message: "は必ず今日以前にして下さい"}
 
  def error_check
-   if food_name.blank?
-     errors[:base] << '食品名は必ず入力して下さい'
-   end
 
-   if syoumi_syouhi.blank?
-    errors[:base] << '賞味・消費は必ず選択して下さい'
+   if !quantity.blank? && quantity < 1
+     errors[:quantity] << 'は必ず１以上にしてください'
    end
-  
-   if purchase_date > Date.today
-    errors[:base] << '購入日は必ず今日以前にして下さい'
-   end
-
-   if quantity.blank?
-     errors[:base] << '個数は必ず入力してして下さい'
-   end
- end
+  end
 
 end
