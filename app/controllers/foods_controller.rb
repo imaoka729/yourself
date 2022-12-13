@@ -1,6 +1,6 @@
 class FoodsController < ApplicationController
   before_action :logged_in_user
-  before_action :set_food, only: %i[ show edit update destroy ]
+  before_action :set_food, only: %i[ show edit syouhi update destroy ]
 
   # GET /foods or /foods.json
   def index
@@ -18,6 +18,9 @@ class FoodsController < ApplicationController
 
   # GET /foods/1/edit
   def edit
+  end
+
+  def syouhi
   end
 
   # POST /foods or /foods.json
