@@ -20,5 +20,10 @@
   <%= number_with_delimiter(@saving.income) %>
 </p>
 
+<p>
+  <strong>コメント:</strong>
+  <%= number_with_delimiter(@saving.comment) %>
+</p>
+
 <%= link_to '編集', edit_saving_path(@saving) %> |
 <%= link_to '戻る', savings_path %>
