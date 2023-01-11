@@ -36,9 +36,9 @@ class Saving < ApplicationRecord
         if balance < 10000
             "千里の道も一歩から"
         elsif balance < 100000
-            "お、頑張り始めた"
+            "ちりも積もれば？"
         elsif balance < 200000
-            "将来見据えて"
+            "理想に向かって、東奔西走！"
         elsif balance < 300000
             "絶対間に合うよ"
         elsif balance < 400000
@@ -46,7 +46,7 @@ class Saving < ApplicationRecord
         elsif balance < 500000
             "時は止まらないからね"
         elsif balance < 600000
-            "習慣化してきたかな？"
+            "変えられるのは今だけだ"
         elsif balance < 700000
             "まだまだできるよね？"
         elsif balance < 800000
