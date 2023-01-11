@@ -1,15 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <h1>貯金</h1>
-<h2> 現在の残高 <%= number_with_delimiter(Saving.cal_balance(@current_user.id))%>円      　　坪</h2>
+<h2> 現在の残高 <%= number_with_delimiter(Saving.cal_balance(@current_user.id))%>円      　　坪|</h2>
 <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @message%></h1>
 <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;岡
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;村</h2>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;岡|
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;村|</h2>
 <h2><%= link_to '新しく入力', new_saving_path %></h2>
 
     <%= form_tag('/savings_search') do %>
@@ -30,9 +30,9 @@
     <tr>
       <!--<th>アカウントID</th>-->
       <th>年月日</th>
-      <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;支出</th>
-      <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;収入</th>  
-      <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月の残高</th>
+      <th style="text-align:right">支出</th>
+      <th style="text-align:right">収入</th>  
+      <th style="text-align:right">月の残高</th>
       <th>コメント</th>
       <th colspan="3"></th>
     </tr>

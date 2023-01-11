@@ -11,6 +11,7 @@ class Saving < ApplicationRecord
         if (pay.present? and pay <= 0) or (income.present? and income <= 0)
             errors[:base] << 'マイナスと0は登録できません'
         end
+
     end
 
     def self.cal_balance(account_id)
@@ -38,7 +39,7 @@ class Saving < ApplicationRecord
         elsif balance < 100000
             "ちりも積もれば？"
         elsif balance < 200000
-            "理想に向かって、東奔西走！"
+            "理想に向かって、東奔西|走！"
         elsif balance < 300000
             "絶対間に合うよ"
         elsif balance < 400000
@@ -46,7 +47,7 @@ class Saving < ApplicationRecord
         elsif balance < 500000
             "時は止まらないからね"
         elsif balance < 600000
-            "変えられるのは今だけだ"
+            "変えられるのは今|だけだ"
         elsif balance < 700000
             "まだまだできるよね？"
         elsif balance < 800000
@@ -54,7 +55,7 @@ class Saving < ApplicationRecord
         elsif balance < 900000
             "百里を行くものは九十を半ばとす、だよ"
         elsif balance < 1000000
-            "続けるよね？"
+            "立っているだけでは、部屋はきれいにならない"
         else
             "想像し、創造せよ"
         end
