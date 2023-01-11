@@ -42,7 +42,11 @@ class FoodsController < ApplicationController
         format.html { redirect_to food_url(@food), notice: "" }
         format.json { render :show, status: :ok, location: @food }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        if @food.consumption?
+          format.html { render :syouhi, status: :unprocessable_entity }
+        else
+          format.html { render :edit, status: :unprocessable_entity }
+        end
         format.json { render json: @food.errors, status: :unprocessable_entity }
       end
     end
@@ -66,6 +70,6 @@ class FoodsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def food_params
-      params.require(:food).permit(:user_id, :food_name, :category_id, :syoumi_syouhi, :expiration_date, :purchase_date, :quantity)
+      params.require(:food).permit(:user_id, :food_name, :category_id, :syoumi_syouhi, :expiration_date, :purchase_date, :quantity, :consumption, :consumption_how)
     end
 end
