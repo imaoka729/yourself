@@ -1,5 +1,18 @@
 class Saving < ApplicationRecord
 
+    validate :error_check
+
+    def error_check
+
+        if income.blank? and pay.blank?
+            errors[:base] << '収入と支出のどちらかを入力してください'
+        end
+
+        if (pay.present? and pay <= 0) or (income.present? and income <= 0)
+            errors[:base] << 'マイナスと0は登録できません'
+        end
+    end
+
     def self.cal_balance(account_id)
         savings = Saving.where(account_id: account_id)
 
@@ -10,6 +23,7 @@ class Saving < ApplicationRecord
             if saving.pay
                 total_pay = total_pay + saving.pay
             end
+            
             if saving.income
                 total_income = total_income + saving.income
             end
@@ -22,7 +36,7 @@ class Saving < ApplicationRecord
         if balance < 10000
             "千里の道も一歩から"
         elsif balance < 100000
-            "頑張り始めた"
+            "お、頑張り始めた"
         elsif balance < 200000
             "将来見据えて"
         elsif balance < 300000
@@ -40,7 +54,7 @@ class Saving < ApplicationRecord
         elsif balance < 900000
             "百里を行くものは九十を半ばとす、だよ"
         elsif balance < 1000000
-            "保留"
+            "続けるよね？"
         else
             "想像し、創造せよ"
         end
