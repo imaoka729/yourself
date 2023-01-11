@@ -58,6 +58,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def search
+    
+    @account_id_keyword = params[:search][:account_id]
+
+    if params[:search][:account_id].present?
+      @users = User.where("account_id like '%" + params[:search][:account_id] + "%'").order(:created_at => "desc")
+    else
+      @users = User.all
+    end
+
+    render :index
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

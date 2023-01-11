@@ -1,12 +1,44 @@
-<h1>メニュートップ</h1>
+<!--
+<h1 class="h1_title">メニュートップ</h1>
 
-<%= image_tag 'sample.jpg', size: '100x100' %>
+<h3><%= image_tag 'sample.jpg', size:'70x70' %></h3>
 
 <h2>お金</h2>
 <%= link_to "収入・支出一覧を見る", "/savings"%>
 <p>現在 貯金は<%= number_with_delimiter(Saving.cal_balance(@current_user.id)) %>円です</p>
 
+<h3><%= image_tag 'foods_icon', size:'70x70' %></h3>
 
 <h2>食品</h2>
 <%= link_to "食品一覧を見る", "/foods" %>
-<p>期限が3日以内の食品が<%= Food.quantity(@current_user.id) %>個あります</p>
+<p>期限が3日以内の食品が<%= Food.quantity(@current_user.id) %>個あります</p> -->
+
+
+<div class="container px-4 py-5">
+  <h1 class="pb-2 border-bottom">メニュートップ</h1>
+  <div class="row g-4 py-5 row-cols-1 row-cols-lg-1">
+  <div class="col d-flex align-items-start">
+    <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+     <%= image_tag 'sample', size:'70x70' %>
+    </div>
+
+    <div>
+      <h2>お金</h2>
+      <p>現在 貯金は<%= number_with_delimiter(Saving.cal_balance(@current_user.id)) %>円です
+      </p> 
+      <a href="/savings" class="btn btn-primary">収入・支出一覧を見る </a>
+    </div>
+
+    <div class="col d-flex align-items-start">
+    <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+     <%= image_tag 'foods_icon', size:'70x70' %>
+    </div>
+
+    <div>
+      <h2>食品</h2>
+      <p>期限が3日以内の食品が<%= Food.quantity(@current_user.id) %>個あります
+      </p> 
+      <a href="/foods" class="btn btn-primary">食品一覧を見る </a>
+    </div>
+
+  </div>

@@ -27,5 +27,4 @@ class User < ApplicationRecord
         errors[:base] << '利用者名は必ず入力してして下さい'
       end
     end
-
 end
