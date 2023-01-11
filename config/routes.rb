@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  post 'users_search', to: 'users#search'
+  #post '/', to: 'users#search'
+
   resources :savings
   resources :foods
   get 'foods/:id/syouhi' => 'foods#syouhi', as: 'syouhi_food'

@@ -10,6 +10,7 @@ ja:
         syoumi_syouhi: 賞味・消費
         quantity: 個数
         purchase_date: 購入日
+        consumption: 消費数
       user:
         account_id: アカウントid
         passward: パスワード

@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :カテゴリー %>
-    <%= form.select :category_id, Category.all.map { |c| [c.category_name, c.id]} %> 
+    <%= form.select :category_id, Category.where(user_id: @current_user.id).map { |c| [c.category_name, c.id]} %> 
     <%= link_to 'カテゴリー追加' , new_category_path %>
   </div>
 

@@ -1,7 +1,7 @@
 <%= form_with(model: food) do |form| %>
   <% if food.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(food.errors.count, "") %> 個のエラーが発生しました:</h2>
+      <h2>エラーが発生しました:</h2>
 
       <ul>
         <% food.errors.each do |error| %>
@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :カテゴリー %>
-    <%= form.select :category_id, Category.all.map { |c| [c.category_name, c.id]} , {}, { disabled: true } %> 
+    <%= form.select :category_id, Category.where(user_id: @current_user.id).map { |c| [c.category_name, c.id]} , {}, { disabled: true } %> 
   </div>
 
   <div class="field">
@@ -42,9 +42,15 @@
 
   <div class="field">
     <%= form.label :個数 %>
-    <%= form.number_field :quantity %>
+    <%= form.number_field :quantity ,readonly: true%>
   </div>
 
+  <div class="field">
+    <%= form.label :消費数 %>
+    <%= form.number_field :consumption%>
+  </div>
+
+  <%= form.hidden_field :consumption_how, :value => 1 %>
   <div class="actions">
     <%= form.submit "登録" %>
   </div>
