@@ -19,7 +19,7 @@ h3 {
 }
 
 p{
-  clear: left;
+  margin-right: 15px;
 }
 
 header {
@@ -46,7 +46,10 @@ pre {
   font-size: 11px; }
 
 a {
-  color: #000; }
+  color: #000;
+  padding-right: 5px;
+  padding-left: 5px;
+}
 
 header a:visited {
   color: #333; }
