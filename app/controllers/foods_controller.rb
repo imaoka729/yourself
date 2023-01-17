@@ -4,7 +4,25 @@ class FoodsController < ApplicationController
 
   # GET /foods or /foods.json
   def index
-    @foods = Food.where(user_id: current_user.id).order(expiration_date: :asc)
+    @foods = Food.where(["user_id = ? and quantity > 0", current_user.id]).order(expiration_date: :asc)
+  end
+
+  def search
+    @category_id =  params[:search][:category_id]
+    @zeroflag = params[:search][:zeroflag]
+
+    where_zero = " and quantity > 0"
+    if @zeroflag
+      where_zero =""
+    end
+
+    if @category_id.present?
+      @foods = Food.where(["user_id = ? and category_id = ?" + where_zero, current_user.id, @category_id]).order(expiration_date: :asc)
+    else
+      @foods = Food.where(["user_id = ?" + where_zero, current_user.id]).order(expiration_date: :asc)
+    end
+
+  render :index
   end
 
   # GET /foods/1 or /foods/1.json
