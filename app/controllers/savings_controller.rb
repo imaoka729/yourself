@@ -16,7 +16,6 @@ class SavingsController < ApplicationController
   def search
     @year =  params[:search][:year]
     @month = params[:search][:month]
-
     if @year.present? && @month.present?
       datefi = Date.new(@year.to_i, @month.to_i, 1)
       datela = datefi.end_of_month
