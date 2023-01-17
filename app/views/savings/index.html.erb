@@ -19,7 +19,8 @@
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月
     <br>
-    <%= text_field_tag 'search[year]',  @year %><%= text_field_tag'search[month]', @month%>
+    <%= number_field_tag 'search[year]',  @year, min: 2000 %>
+    <%= number_field_tag 'search[month]', @month, min: 1, max: 12 %>
     <!--<%= select_tag'search[:year]'%><%= select_tag'search[:month]'%>-->
     <%=submit_tag'検索' %>
     </p>

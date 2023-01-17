@@ -18,5 +18,6 @@ User.create!(
   passward: 'bbbb',
   user_name: 'ばなな',
   admin: false
+
 )
     
