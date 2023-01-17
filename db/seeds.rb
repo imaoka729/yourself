@@ -21,4 +21,4 @@ user1 = User.create!(
 )
 
 user1_category = Category.create!(user_id: user1.id, category_name: 'パン類')
-Food.create!(user_id: user1.id, food_name: "クリームパン", category_id: user1_category.id, syoumi_syouhi: "0", expiration_date: "2023-01-15", purchase_date: "2023-01-15", quantity: "3")
+Food.create!(user_id: user1.id, food_name: 'クリームパン', category_id: user1_category.id, syoumi_syouhi: 0, expiration_date: '2023-01-15', purchase_date: '2023-01-15', quantity: 3)
